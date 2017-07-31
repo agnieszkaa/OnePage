@@ -19,15 +19,15 @@ namespace BaseFirst.Controllers
             var dane = db.Kontakty;
             return View(dane);
         }
-        public ActionResult addName(Kontakty newContact)
+        public ActionResult Editor (Kontakty newContact)
         {
             ViewBag.Message = "Add your name";
-            DataBaseFirstEntities db = new DataBaseFirstEntities();
+            DataBaseFirstEntities dba = new DataBaseFirstEntities();
             
 
-            db.Kontakty.Add(newContact);
-            db.SaveChanges();
-            return View("Editor");
+            
+            
+            return View();
         }
     }
 }

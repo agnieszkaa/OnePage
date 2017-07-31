@@ -16,6 +16,6 @@ namespace BaseFirst.Models
     {
         public int Id { get; set; }
         public string NAme { get; set; }
-        public string SureNAme { get; set; }
+        public string LastNAme { get; set; }
     }
 }
