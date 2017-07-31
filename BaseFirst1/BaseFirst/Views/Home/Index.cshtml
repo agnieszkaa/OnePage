@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BaseFirst.Models.Kontakty>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var item in Model)
+{
+    @item.NAme;
+    @item.SureNAme;
+}
