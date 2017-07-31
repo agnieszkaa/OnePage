@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,8 +24,9 @@ namespace BaseFirst.Controllers
         {
             ViewBag.Message = "Add your name";
             DataBaseFirstEntities dba = new DataBaseFirstEntities();
-            
 
+
+             
             
             
             return View();
