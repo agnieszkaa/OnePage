@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BaseFirst.Models.Kontakty>
+﻿@model IEnumerable<BaseFirst.Models.ContactDb>
 @{
     ViewBag.Title = "Index";
 }
@@ -7,6 +7,6 @@
 
 @foreach(var item in Model)
 {
-    @item.NAme;
-    @item.LastNAme;
+    @item.Name;
+    @item.GetLastName();
 }

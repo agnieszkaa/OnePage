@@ -16,20 +16,31 @@ namespace BaseFirst.Controllers
         
         public ActionResult Index()
         {
-            DataBaseFirstEntities db = new DataBaseFirstEntities();
-            var dane = db.Kontakty;
-            return View(dane);
+            KontaktyDatabase db = new KontaktyDatabase();
+            var items = db.Kontakty;
+            var list = new List<ContactDb>();
+            foreach(var item in )
+            {
+                var dbcontact = new ContactDb()
+                {
+                    Name = item.Name,
+                    SetLastName(item.LastName
+)
+                };
+                list.Add(dbcontact);
+            }
+            return View(list);
         }
         public ActionResult Editor (Kontakty newContact)
         {
             ViewBag.Message = "Add your name";
-            DataBaseFirstEntities dba = new DataBaseFirstEntities();
+            KontaktyDatabase db = new KontaktyDatabase();
 
 
-             
-            
-            
-            return View();
+            var dane = db.Kontakty;
+
+
+            return View("Editor", dane);
         }
     }
 }

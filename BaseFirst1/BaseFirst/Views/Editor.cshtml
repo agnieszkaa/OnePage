@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BaseFirst.Models.Kontakty>
+@{
+    ViewBag.Title = "Editor";
+}
+
+<h2>Editor</h2>
+<div>
+    @using (Html.BeginForm("addName"))
+    {
+        @Html.EditorFor(m=>m)
+        <input type="submit" value="send"/>
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@model List<BaseFirst.Models.ContactDb>
+@{
+    ViewBag.Title = "Editor";
+}
+
+<h2>Editor</h2>
+<div>
+    @using (Html.BeginForm("addName" , "HomeController"))
+    {
+       
+        @Html.EditorFor(m => m)
+
+        <p><input type="submit" value="send" /></p>
+        
+        
+    }
+</div>
+
+<div>
+    @foreach (var item in Model)
+    {
+        @item.Name;
+        <p>@Html.TextBoxFor(a => item.Name)</p>
+        @item.GetLastName();
+        <p>@Html.TextBoxFor(a => item.GetLastName())</p>
+    }
+
+</div>

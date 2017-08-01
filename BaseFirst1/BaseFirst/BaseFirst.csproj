@@ -96,39 +96,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DataBaseFirst.mdf" />
-    <Content Include="App_Data\DataBaseFirst_log.ldf">
-      <DependentUpon>DataBaseFirst.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\KontaktyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>KontaktyModel.Context.cs</LastGenOutput>
-      <DependentUpon>KontaktyModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\KontaktyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KontaktyModel.edmx</DependentUpon>
-      <LastGenOutput>KontaktyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\KontaktyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KontaktyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\KontaktyModel.edmx.diagram">
-      <DependentUpon>KontaktyModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -137,24 +118,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Kontakty.cs">
-      <DependentUpon>KontaktyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KontaktyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KontaktyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KontaktyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KontaktyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KontaktyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KontaktyModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\ContactDb.cs" />
+    <Compile Include="Models\Kontakt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +141,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
