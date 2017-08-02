@@ -2,6 +2,20 @@
 
 
 <h2>Editor</h2>
+
+
+<div>
+    @foreach (BaseFirst.Contact item in this.Model)
+    {
+        <p>Name</p>
+        <p>@Html.TextBoxFor(a => item.NAme)</p>
+        <p>LastName</p>
+        <p>@Html.TextBoxFor(a => item.LastNAme)</p>
+        
+    }
+    
+   
+</div>
 <div>
     @using (Html.BeginForm("addName" , "HomeController"))
     {
@@ -12,15 +26,4 @@
         
         
     }
-</div>
-
-<div>
-    @foreach (BaseFirst.Contact item in this.Model)
-    {
-        @item.NAme;
-        <p>@Html.TextBoxFor(a => item.NAme)</p>
-        @item.LastNAme;
-        <p>@Html.TextBoxFor(a => item.LastNAme)</p>
-    }
-
 </div>
