@@ -36,7 +36,18 @@ namespace BaseFirst.Controllers
 
             var dane = db.Contacts;
 
+            //private void button1_Click(object sender, EventArgs e)
+            //{
+            //    sqlCEC.Open();
 
+            //    //Project_List.Items.Add(new_project_name.Text.ToString());
+            //    SqlCeCommand sqlCEcommand = new SqlCeCommand("INSERT INTO Project Table(Project Name) VALUES(@Project Name)", sqlCEC);
+            //    sqlCEcommand.Parameters.AddWithValue("@Project Name", new_project_name.Text);
+
+            //    sqlCEcommand.ExecuteNonQuery();
+
+            //    sqlCEC.Close();
+            //}
             return View( dane);
         }
     }
