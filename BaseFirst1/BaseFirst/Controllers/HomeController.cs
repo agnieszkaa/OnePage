@@ -16,13 +16,10 @@ namespace BaseFirst.Controllers
         
         public ActionResult Index()
         {
-            Kontakty db = new Kontakty();
-            var items = db.Kontakty;
-            var list = new List<ContactDb>();
-            
-                
-                
-            
+            KontaktyDatabase db = new KontaktyDatabase();
+            var items = db.Contacts;
+            var list = items.ToList();
+             
             return View(list);
         }
 
@@ -31,16 +28,16 @@ namespace BaseFirst.Controllers
             throw new NotImplementedException();
         }
 
-        public ActionResult Editor(ContactDb newContact)
+        public ActionResult Editor(Contact newContact)
         {
             ViewBag.Message = "Add your name";
             KontaktyDatabase db = new KontaktyDatabase();
 
 
-            var dane = db.Kontakty;
+            var dane = db.Contacts;
 
 
-            return View("Editor", dane);
+            return View( dane);
         }
     }
 }

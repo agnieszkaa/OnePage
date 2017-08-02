@@ -1,4 +1,4 @@
-﻿@model List<BaseFirst.Models.ContactDb>
+﻿@model List<BaseFirst.Contact>
 @{
     ViewBag.Title = "Editor";
 }
@@ -19,10 +19,10 @@
 <div>
     @foreach (var item in Model)
     {
-        @item.Name;
-        <p>@Html.TextBoxFor(a => item.Name)</p>
-        @item.LastName;
-        <p>@Html.TextBoxFor(a => item.LastName)</p>
+        @item.NAme;
+        <p>@Html.TextBoxFor(a => item.NAme)</p>
+        @item.LastNAme;
+        <p>@Html.TextBoxFor(a => item.LastNAme)</p>
     }
 
 </div>
