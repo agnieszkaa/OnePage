@@ -1,7 +1,5 @@
-﻿@model List<BaseFirst.Contact>
-@{
-    ViewBag.Title = "Editor";
-}
+﻿@model IEnumerable<BaseFirst.Contact>
+
 
 <h2>Editor</h2>
 <div>
@@ -17,7 +15,7 @@
 </div>
 
 <div>
-    @foreach (var item in Model)
+    @foreach (BaseFirst.Contact item in this.Model)
     {
         @item.NAme;
         <p>@Html.TextBoxFor(a => item.NAme)</p>
