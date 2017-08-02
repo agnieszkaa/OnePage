@@ -8,18 +8,7 @@ namespace BaseFirst.Models
     public class ContactDb
     {
         public string Name { get; set; }
-
-        private string lastName;
-
-        public string GetLastName()
-        {
-            return lastName;
-        }
-
-        public void SetLastName(string value)
-        {
-            lastName = value;
-        }
+        public string LastName { get; set; }
     }
 }
 

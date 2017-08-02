@@ -16,22 +16,22 @@ namespace BaseFirst.Controllers
         
         public ActionResult Index()
         {
-            KontaktyDatabase db = new KontaktyDatabase();
+            Kontakty db = new Kontakty();
             var items = db.Kontakty;
             var list = new List<ContactDb>();
-            foreach(var item in )
-            {
-                var dbcontact = new ContactDb()
-                {
-                    Name = item.Name,
-                    SetLastName(item.LastName
-)
-                };
-                list.Add(dbcontact);
-            }
+            
+                
+                
+            
             return View(list);
         }
-        public ActionResult Editor (Kontakty newContact)
+
+        private object SetLastName(object lastName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult Editor(ContactDb newContact)
         {
             ViewBag.Message = "Add your name";
             KontaktyDatabase db = new KontaktyDatabase();
