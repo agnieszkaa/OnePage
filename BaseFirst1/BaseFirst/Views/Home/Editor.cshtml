@@ -4,18 +4,6 @@
 <h2>Editor</h2>
 
 
-@*<div>
-    @foreach (BaseFirst.Contact item in this.Model)
-    {
-        <p>Name</p>
-        <p>@Html.TextBoxFor(a => item.NAme)</p>
-        <p>LastName</p>
-        <p>@Html.TextBoxFor(a => item.LastNAme)</p>
-        
-    }
-    
-   
-</div>*@
 
 <form action="/Home/Editor" method="post">
     <label for="NAme">Name</label>
@@ -25,14 +13,4 @@
     <p><input type="submit" value="send" /></p>
 </form>
 
-@*<div>
-    @using (Html.BeginForm("ParEditor" , "Home"))
-    {
-       
-        @Html.EditorFor(m => m)
-        
-        <p><input type="submit" value="send" /></p>
-        
-        
-    }
-</div>*@
+

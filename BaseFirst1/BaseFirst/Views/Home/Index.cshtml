@@ -5,8 +5,14 @@
 
 <h2>Index</h2>
 
-@foreach(BaseFirst.Contact item in this.Model)
+@foreach (BaseFirst.Contact item in this.Model)
 {
     @item.NAme;
+    <p> </p>
     @item.LastNAme;
+    <p><br/></p>
+
+    @Html.ActionLink("Dalete","Dalete", new { id = item.Id })
+    <br />
+    <br />
 }

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,8 +12,6 @@ namespace BaseFirst.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
-        
         
         public ActionResult Index()
         {
@@ -37,26 +36,54 @@ namespace BaseFirst.Controllers
             db.Contacts.Add(newContact);
             db.SaveChanges();
 
-            //private void button1_Click(object sender, EventArgs e)
-            //{
-            //    sqlCEC.Open();
-
-            //    //Project_List.Items.Add(new_project_name.Text.ToString());
-            //    SqlCeCommand sqlCEcommand = new SqlCeCommand("INSERT INTO Project Table(Project Name) VALUES(@Project Name)", sqlCEC);
-            //    sqlCEcommand.Parameters.AddWithValue("@Project Name", new_project_name.Text);
-
-            //    sqlCEcommand.ExecuteNonQuery();
-
-            //    sqlCEC.Close();
-            //}
+            
             return View( dane);
+        }
+        
+        //public int id;
+       [HttpGet]
+        public ActionResult Dalete(string id)
+        {
+            int idToDelete = int.Parse(id);
+            
+            return View(idToDelete);
+
+        }
+        [HttpPost]
+        public  ActionResult Dalete(Contact contactDelete, string id) 
+        {
+            
+            KontaktyDatabase db = new KontaktyDatabase();
+            int Id = Int32.Parse(id);
+            Contact contactFind = db.Contacts.Find(Id);
+            db.Contacts.Remove(contactFind);
+            db.SaveChanges();
+            //Contact contactToDelete = new Contact() { Id = id };
+            //db.Entry(contactToDelete).State = EntityState.Deleted;
+            return RedirectToAction("Index");
+
+        }
+
+
+        [HttpDelete]
+        public ActionResult Delete(string id)
+        {
+
+            KontaktyDatabase db = new KontaktyDatabase();
+            int Id = Int32.Parse(id);
+            Contact contactFind = db.Contacts.Find(Id);
+            db.Contacts.Remove(contactFind);
+            db.SaveChanges();
+            //Contact contactToDelete = new Contact() { Id = id };
+            //db.Entry(contactToDelete).State = EntityState.Deleted;
+            return View();
+
         }
         public void ParEditor(Contact contactPAr)
         {
-            //KontaktyDatabase db = new KontaktyDatabase();
+            
             Response.Write(string.Format("Name: {0}, LastName: {1}", contactPAr.NAme, contactPAr.LastNAme));
-            //db.Contacts.Add(contactPAr);
-            //db.SaveChanges();
+            
         }
     }
 }
