@@ -34,7 +34,8 @@ namespace BaseFirst.Controllers
 
             var dane = db.Contacts;
 
-
+            db.Contacts.Add(newContact);
+            db.SaveChanges();
 
             //private void button1_Click(object sender, EventArgs e)
             //{
@@ -52,7 +53,10 @@ namespace BaseFirst.Controllers
         }
         public void ParEditor(Contact contactPAr)
         {
+            //KontaktyDatabase db = new KontaktyDatabase();
             Response.Write(string.Format("Name: {0}, LastName: {1}", contactPAr.NAme, contactPAr.LastNAme));
+            //db.Contacts.Add(contactPAr);
+            //db.SaveChanges();
         }
     }
 }
