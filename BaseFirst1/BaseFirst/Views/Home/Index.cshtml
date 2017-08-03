@@ -4,15 +4,34 @@
 }
 
 <h2>Index</h2>
+<asp:TemplateField>
+    <ItemTemplate>
+        <asp:LabelID ="Editor" runat="server" Text='<%# Eval("DBColumnName")%>' />
+    </ItemTemplate>
+    <FooterTemplate>
+        <asp:Button ID="btnNewDataDefinition" runat="server" "Editor" Text="Create a new data definition" />
 
-@foreach (BaseFirst.Contact item in this.Model)
-{
-    @item.NAme;
-    <p> </p>
-    @item.LastNAme;
-    <p><br/></p>
+    </FooterTemplate>
 
-    @Html.ActionLink("Dalete","Dalete", new { id = item.Id })
-    <br />
-    <br />
-}
+</asp:TemplateField>
+
+
+<input type="submit" value="Add" />
+@Html.ActionLink("Editor", "Editor")
+<br />
+<br/>
+<table border="1" width="300" height="150">
+    @foreach (BaseFirst.Contact item in this.Model)
+    {
+
+
+        <tr>
+            <td> @item.NAme</td>
+
+            <td> @item.LastNAme</td>
+
+            <td> @Html.ActionLink("Dalete", "Dalete", new { id = item.Id })</td>
+        </tr>
+
+     }
+</table>

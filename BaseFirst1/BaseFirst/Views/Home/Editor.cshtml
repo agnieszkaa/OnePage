@@ -4,13 +4,14 @@
 <h2>Editor</h2>
 
 
+@Html.BeginForm("Editor", "home", FormMethod.Post)
+{
 
-<form action="/Home/Editor" method="post">
-    <label for="NAme">Name</label>
-    <input type="text" name="NAme" id="NAme"/>
-    <label for="LastNAme">LastName</label>
-    <input type="text" name="LastNAme" id="LastNAme" />
-    <p><input type="submit" value="send" /></p>
-</form>
-
-
+    <form action="/Home/Editor" method="post">
+        <label for="NAme">Name</label>
+        <input type="text" name="NAme" id="NAme"/>
+        <label for="LastNAme">LastName</label>
+        <input type="text" name="LastNAme" id="LastNAme" />
+        <p><input type="submit" value="send" /></p>
+    </form>
+}

@@ -21,26 +21,26 @@ namespace BaseFirst.Controllers
              
             return View(list);
         }
-
-       
-
+        [HttpGet]
+        public ActionResult Editor(string NAme, string LastNAme)
+        {
+            KontaktyDatabase db = new KontaktyDatabase();
+            var dane = db.Contacts;
+            return View(dane);
+        }
         public ActionResult Editor(Contact newContact, string NAme, string LastNAme)
         {
             var contact = (string.Format("NAme:{0}, LastNAme:{1}", NAme,LastNAme));
             ViewBag.Message = "Add your name";
             KontaktyDatabase db = new KontaktyDatabase();
-
-
-            var dane = db.Contacts;
-
             db.Contacts.Add(newContact);
             db.SaveChanges();
 
-            
-            return View( dane);
+           
+            return RedirectToAction("Index");
         }
         
-        //public int id;
+        
        [HttpGet]
         public ActionResult Dalete(string id)
         {
@@ -58,27 +58,10 @@ namespace BaseFirst.Controllers
             Contact contactFind = db.Contacts.Find(Id);
             db.Contacts.Remove(contactFind);
             db.SaveChanges();
-            //Contact contactToDelete = new Contact() { Id = id };
-            //db.Entry(contactToDelete).State = EntityState.Deleted;
             return RedirectToAction("Index");
 
         }
 
-
-        [HttpDelete]
-        public ActionResult Delete(string id)
-        {
-
-            KontaktyDatabase db = new KontaktyDatabase();
-            int Id = Int32.Parse(id);
-            Contact contactFind = db.Contacts.Find(Id);
-            db.Contacts.Remove(contactFind);
-            db.SaveChanges();
-            //Contact contactToDelete = new Contact() { Id = id };
-            //db.Entry(contactToDelete).State = EntityState.Deleted;
-            return View();
-
-        }
         public void ParEditor(Contact contactPAr)
         {
             
