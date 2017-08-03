@@ -23,18 +23,18 @@ namespace BaseFirst.Controllers
             return View(list);
         }
 
-        private object SetLastName(object lastName)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public ActionResult Editor(Contact newContact)
+        public ActionResult Editor(Contact newContact, string NAme, string LastNAme)
         {
+            var contact = (string.Format("NAme:{0}, LastNAme:{1}", NAme,LastNAme));
             ViewBag.Message = "Add your name";
             KontaktyDatabase db = new KontaktyDatabase();
 
 
             var dane = db.Contacts;
+
+
 
             //private void button1_Click(object sender, EventArgs e)
             //{
@@ -49,6 +49,10 @@ namespace BaseFirst.Controllers
             //    sqlCEC.Close();
             //}
             return View( dane);
+        }
+        public void ParEditor(Contact contactPAr)
+        {
+            Response.Write(string.Format("Name: {0}, LastName: {1}", contactPAr.NAme, contactPAr.LastNAme));
         }
     }
 }
