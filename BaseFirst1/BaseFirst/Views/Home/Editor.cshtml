@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<BaseFirst.Contact>
 
 
-<h2>Editor</h2>
+<h2>Adding</h2>
 
 
-@Html.BeginForm("Editor", "home", FormMethod.Post)
+@using (Html.BeginForm("Editor", "home", FormMethod.Post))
 {
 
     <form action="/Home/Editor" method="post">

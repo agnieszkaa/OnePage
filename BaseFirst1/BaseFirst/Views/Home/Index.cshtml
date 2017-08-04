@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>People</h2>
 
 
 
@@ -29,13 +29,13 @@
 
             <td> @item.LastNAme</td>
 
-            @*<td> @Html.ActionLink("Delete", "Dalete", new { id = item.Id })</td>*@
-            <td>
-                <form action="http://localhost:55112/Home/Dalete">
-                    @new  id=Id
+            <td> @Html.ActionLink("Delete", "Dalete", new { id = item.Id })</td>
+            @*<td>
+                <form action="http://localhost:55112/Home/Dalete" >
+                    
                     <button>Delete</button>
                 </form>
-            </td>
+            </td>*@
         </tr>
 
      }

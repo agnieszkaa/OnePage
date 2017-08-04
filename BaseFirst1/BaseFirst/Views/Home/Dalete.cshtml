@@ -6,7 +6,7 @@
 <h2>Delete</h2>
 @*to niby dziala*@
 
-@Html.BeginForm("dalete", "home",FormMethod.Post)
+@using (Html.BeginForm("dalete", "home", FormMethod.Post))
 { 
     
     <label for="id">Id to delete</label>
