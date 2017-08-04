@@ -44,6 +44,7 @@ namespace BaseFirst.Controllers
        [HttpGet]
         public ActionResult Dalete(string id)
         {
+            
             int idToDelete = int.Parse(id);
             
             return View(idToDelete);

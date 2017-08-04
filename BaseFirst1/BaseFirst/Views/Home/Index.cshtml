@@ -7,11 +7,19 @@
 
 
 
-<input type="submit" value="Add" />
-@Html.ActionLink("Editor", "Editor")
+<form action="http://localhost:55112/Home/Editor">
+    <button>Add</button>
+</form> 
+
 <br />
 <br/>
 <table border="2" width="300" height="150">
+    <tr bgcolor="Gainsboro">
+        <td>name</td>
+        <td>lastname</td>
+        <td></td>
+    </tr>
+    
     @foreach (BaseFirst.Contact item in this.Model)
     {
 
@@ -21,7 +29,13 @@
 
             <td> @item.LastNAme</td>
 
-            <td> @Html.ActionLink("Dalete", "Dalete", new { id = item.Id })</td>
+            @*<td> @Html.ActionLink("Delete", "Dalete", new { id = item.Id })</td>*@
+            <td>
+                <form action="http://localhost:55112/Home/Dalete">
+                    @new  id=Id
+                    <button>Delete</button>
+                </form>
+            </td>
         </tr>
 
      }
