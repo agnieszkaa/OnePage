@@ -12,23 +12,25 @@ namespace OnePage.Controllers
 
         
 
-        public JsonResult ShowContacts(string NAme, string LastNAme)
+        public JsonResult ShowContacts(string name, string lastName)
         {
             KontaktyDatabase db = new KontaktyDatabase();
             var items = db.Contacts;
             var list = items.ToList();
+            
+            
             //var list = new List<string>() { "MAMA", "TATA", "JA" };
             return Json(list, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Add(string NAme, string LastNAme)
+        public JsonResult Add(string name, string lastName)
         {
             KontaktyDatabase db = new KontaktyDatabase();
             var dane = db.Contacts;
             return Json(dane);
         }
-        public JsonResult Add(Contact newContact, string NAme, string LastNAme)
+        public JsonResult Add(Contact newContact, string name, string lastName)
         {
-            var contact = (string.Format("NAme:{0}, LastNAme:{1}", NAme, LastNAme));
+            var contact = (string.Format("name:{0}, lastName:{1}", name, lastName));
            
             KontaktyDatabase db = new KontaktyDatabase();
             db.Contacts.Add(newContact);
@@ -58,10 +60,10 @@ namespace OnePage.Controllers
 
         }
 
-        public void ParEditor(Contact contactPAr)
+        public void ParEditor(Contact contactPar)
         {
 
-            System.Console.WriteLine(string.Format("Name: {0}, LastName: {1}", contactPAr.NAme, contactPAr.LastNAme));
+            System.Console.WriteLine(string.Format("Name: {0}, LastName: {1}", contactPar.name, contactPar.lastName));
 
         }
     }
