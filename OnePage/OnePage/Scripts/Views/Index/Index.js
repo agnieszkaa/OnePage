@@ -1,5 +1,5 @@
 ﻿
-//const ShowContacts = window.Console
+
 
 var indexList = function () {
     
@@ -9,13 +9,16 @@ var indexList = function () {
         appendRowsHtmlToTable(rowsHtml);
      
     });
+   
+   
+    
     function appendRowsHtmlToTable(rows) { 
 
         $('#myTable > tbody:last-child').append(rows);
 
     }
     function generateRowHtml(data) {
-
+        
         var rows = "";
 
         data.forEach(function (item, i) {
@@ -26,22 +29,42 @@ var indexList = function () {
             rows += "<td>" + index + "</td>";
             rows += "<td>" + item.name + "</td>";
             rows += "<td>" + item.lastName + "</td>";
-            rows += "<td>" + genrateRemoveButton(item)+ "</td>";
+            rows += "<td>" + generateRemoveButton(item) + "</td>";
+            rows += "<td>" + generateEditButton(item) + "</td>";
+
 
             rows += "</tr>";
-
+            rows +=  generateAddButton;
         });
+
 
         return rows;
     }
-    function genrateRemoveButton(item) {
+    function generateRemoveButton(item) {
         return "<button class='btn btn-danger'>" + item.Id + "</button>";
+        
     }
+   generateRemoveButton.onclick = function ()
+    {
+       
+      // $.get("HomeApi/Delete", function (data) { }
+        deleteItem();
+    }
+    //generateRemoveButton.addEventListener("click", function () {
+    //    deleteItem(Id);
+    //});
+    function generateAddButton(item) {
+        return "<button class='btn btn-success'>" + "Add" + "</button>";
+    }  
     //toddo delete functi[on
-    function deleteItem(id) {
-        window.console.log(id)
-    }
+    function deleteItem(Id) {
+       
+        window.console.log(Id);
 
+    }
+    function generateEditButton(item) {
+        return "<button class='btn btn'>" + item.Id + "</button>";
+    }
 }(); // IIFE imediately invoke function expression
 //$.ajax({url:"/HomeApi/ShowContacts"})
 

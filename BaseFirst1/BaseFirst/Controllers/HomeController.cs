@@ -1,11 +1,7 @@
 ﻿using BaseFirst.Models;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BaseFirst.Controllers
@@ -13,13 +9,13 @@ namespace BaseFirst.Controllers
     public class HomeController : Controller
     {
         
-        public ActionResult Index()
+        public JsonResult Index()
         {
             KontaktyDatabase db = new KontaktyDatabase();
             var items = db.Contacts;
             var list = items.ToList();
              
-            return View(list);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public ActionResult Editor(string NAme, string LastNAme)

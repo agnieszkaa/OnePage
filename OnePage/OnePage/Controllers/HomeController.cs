@@ -12,10 +12,7 @@ namespace OnePage.Controllers
         // GET: Home
         public ActionResult Index()
         {
-           
-
-            return View();
-            
+            return View(); 
         }
     }
 }
