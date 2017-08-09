@@ -6,6 +6,7 @@ var indexList = function () {
     $.get("HomeApi/ShowContacts", function (data) {
 
         var rowsHtml = generateRowHtml(data);
+
         appendRowsHtmlToTable(rowsHtml);
      
     });
@@ -20,6 +21,7 @@ var indexList = function () {
     function generateRowHtml(data) {
         
         var rows = "";
+        
         data.forEach(function (item, i) {
             
 
@@ -31,12 +33,12 @@ var indexList = function () {
             rows += "<td>" + item.lastName + "</td>";
             rows += "<td>" + generateRemoveButton(item) + "</td>";
             rows += "<td>" + generateEditButton(item) + "</td>";
-            
+            rows += "<td>" + generateAddButton() + "</td>";
 
             rows += "</tr>";
-            rows +=  generateAddButton;
+            
         });
-
+        
         
         return rows;
     }
@@ -45,36 +47,32 @@ var indexList = function () {
     }
    
     
-    function generateAddButton(item) {
-        return "<button class='btn btn-success'>" + "Add" + "</button>";
+    function generateAddButton() {
+        //var btn = document.createElement("BUTTON");        // Create a <button> element
+        //var t = document.createTextNode("CLICK ME");       // Create a text node
+        //btn.appendChild(t);                                // Append the text to <button>
+        //document.body.appendChild(btn);                    // Append <button> to <body> 
+        return "<button class='btn btn-success'> </button>";
     }  
     //toddo delete functi[on
     function _deteleItem(id) {
-        debugger;
-       
-        window.console.log(id);
         $.ajax({
-            url: '/HomeApi/Delete'+id,
-            data: id,
-            type: 'POST',
+            url: '/HomeApi/Delete/' + id,
+            type: 'DELETE',
             success: function (resp) {
-                //request sent and response received.
+                
             }
         });
-        //$.post("HomeApi/Delete", function (id) {
-                
-        //    $(".result").html(id);
-        //});
-        //$.ajax({
-        //    type: "POST",
-        //    url: "./HomeApi/Delete",
-        //    data: id
-        //});
+       
 
 
     }
+    function _addItem(id)
+    {
+
+    }
     function generateEditButton(item) {
-        return "<button class='btn btn'>" + item.id + "</button>";
+        return "<button onclick = 'indexList.addItem(" + item.id + ")' class='btn btn'>" + item.id + "</button>";
     }
 
 
