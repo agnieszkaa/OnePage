@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace OnePage.Controllers
 {
     public class HomeApiController : Controller
     {
-
-
-
+        
 
         public JsonResult ShowContacts(string name, string lastName)
         {
@@ -39,31 +38,41 @@ namespace OnePage.Controllers
         }
 
 
-        //public JsonResult Delete(string id)
-        //{
-
-        //    int idToDelete = int.Parse(id);
-
-        //     return Json(idToDelete);
-        //}
-
-        public JsonResult Delete(Contact contactToDelete, int Id)
+        public void Delete(int? id)
         {
-
+           
             KontaktyDatabase db = new KontaktyDatabase();
             //int Id = Int32.Parse(id);
-            Contact contactFind = db.Contacts.Find(Id);
+            Contact contactFind = db.Contacts.Find(id);
             db.Contacts.Remove(contactFind);
             db.SaveChanges();
-            return Json(Id);
 
         }
+        //public JsonResult Delete(int? id)
+        //{
+
+        //    KontaktyDatabase db = new KontaktyDatabase();
+
+        //    //int Id = Int32.Parse(id);
+        //    Contact contactFind = db.Contacts.Find(id);
+        //    db.Contacts.Remove(contactFind);
+        //    db.SaveChanges();
+        //    return Json(id, JsonRequestBehavior.AllowGet);
+        //}
+
 
         //public void ParEditor(Contact contactPar)
         //{
 
         //    System.Console.WriteLine(string.Format("Name: {0}, LastName: {1}", contactPar.name, contactPar.lastName));
 
+        //}
+        //public JsonResult Delete(string id)
+        //{
+
+        //    int idToDelete = int.Parse(id);
+
+        //     return Json(idToDelete);
         //}
     }
 }
