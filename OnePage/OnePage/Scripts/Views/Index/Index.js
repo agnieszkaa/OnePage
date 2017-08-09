@@ -50,7 +50,7 @@ var indexList = function () {
     function _deteleItem(id) {
         
         $.ajax({
-            url: '/Home/Delete/' + id,
+            url: 'Home/Delete/' + id,
             type: 'DELETE',
             success: function (resp) {
 
