@@ -4,7 +4,7 @@
 }
 
 <h2>Index</h2>
- 
+
 <table id="myTable"  class="table table-striped">
     <thead> <tr> <th>#</th> <th>First Name</th> <th>Last Name</th><th>Actions</th>  </tr> </thead>
     <tbody>
@@ -14,4 +14,17 @@
 
 <script type="text/javascript" src="~/Scripts/Views/Index/Index.js"></script>
  
+@using (Html.BeginForm("Add", "Home", FormMethod.Post))
+{
 
+    <form action="/Home/Editor" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <label for="lastName">LastName</label>
+        <input type="text" name="lastName" id="LastNAme" />
+        <p><input type="submit" value="add"  /></p>
+        
+        
+    </form>
+    
+}
